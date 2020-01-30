@@ -8,5 +8,16 @@
 </head>
 <body>
     <h1>Bienvenidos a Programacion IV</h1>
+    <form name="frmControles" id="frmControles" method="get">
+        Nombre: <input type="text" pattern="[a-zA-ZñÑ ]{3,60}" required size="20" placeholder="Nombre"><br><br>
+        Fecha Nacimiento: <input type="date" required><br><br>
+        Status: 
+        <label for="soltero">soltero</label><input type="radio" name="cboStatus" id="soltero">
+        <label for="acompañado">acompañado</label><input type="radio" name="cboStatus" id="acompañado">
+        <label for="casado">casado</label><input type="radio" name="cboStatus" id="casado">
+        <label for="divorciado">divorciado</label><input type="radio" name="cboStatus" id="divorciado">
+        <label for="viudo">viudo</label><input type="radio" name="cboStatus" id="viudo">
+        <input type="submit" value="Guardar">
+    </form>
 </body>
 </html>
