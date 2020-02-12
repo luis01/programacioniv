@@ -8,9 +8,29 @@
     <link rel="stylesheet" href="estilos.css">
 </head> 
 <body>
-    <h1>Bienvenidos a Programacion IV</h1>
+    <h1>APP ALUMNOS OFFLINE</h1>
     <form name="frmControles" id="frmControles" method="get">
-        
+        <div class="container">
+            <div class="fila">
+                <input type="text" id="txtCodigoAlumno" 
+                    required="required" placeholder="codigo" pattern="^[A-Z]{4}[0-9]{6}">
+            </div>
+            <div class="fila">
+                <input type="text" id="txtNombreAlumno" required="required" 
+                    placeholder="Nombre" pattern="[a-zA-ZñÑ ]{3,65}">
+            </div>
+            <div class="fila">
+                <input type="text" id="txtDireccionAlumno" required="required" placeholder="Direccion" >
+            </div>
+            <div class="fila">
+                <input type="text" id="txtTelefonoAlumno" required="required" 
+                    placeholder="Telefono" pattern="[0-9]{4}-[0-9]{4}">
+            </div>
+            <div class="fila">
+                <input type="submit" value="Guardar">
+            </div>
+        </div>
     </form>
+    <script src="app.js"></script>
 </body>
 </html>
