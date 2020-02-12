@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", e=>{
             nombre = document.querySelector("#txtNombreAlumno").value,
             direccion = document.querySelector("#txtDireccionAlumno").value,
             telefono = document.querySelector("#txtTelefonoAlumno").value;
+
+        console.log(codigo, nombre, direccion, telefono);
+        
         if( 'localStorage' in window ){
             window.localStorage.setItem("codigo", codigo);
             window.localStorage.setItem("nombre", nombre);
