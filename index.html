@@ -7,44 +7,44 @@
     <title>Bienvenido a Programacion IV</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head> 
-<body class="bg-dark">
+<body class="bg-secondary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">::.. APP ACADEMICA ..::</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mostrar-alumnos" data-modulo="alumnos" href="#">ALUMNOS</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link mostrar-docentes" data-modulo="docentes" href="#">DOCENTES</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link mostrar-materias" data-modulo="materias" href="#">MATERIAS</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link mostrar-matricula" data-modulo="matricula" href="#">MATRICULA</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link mostrar-inscripcion" data-modulo="inscripcion" href="#">INSCRIPCION</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link mostrar-notas" data-modulo="notas" href="#">NOTAS</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-            <a class="navbar-brand" href="#">::.. APP ACADEMICA ..::</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mostrar-alumnos" data-modulo="alumnos" href="#">ALUMNOS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-docentes" data-modulo="docentes" href="#">DOCENTES</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-materias" data-modulo="materias" href="#">MATERIAS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-matricula" data-modulo="matricula" href="#">MATRICULA</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-inscripcion" data-modulo="inscripcion" href="#">INSCRIPCION</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-notas" data-modulo="notas" href="#">NOTAS</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div id="modulos">
-            <div id="vistas-alumnos"></div>
-            <div id="vistas-docentes"></div>
-            <div id="vistas-materias"></div>
-            <div id="vistas-matricula"></div>
-            <div id="vistas-inscripcion"></div>
-            <div id="vistas-notas"></div>
-          </div>
+      <div id="modulos">
+        <div id="vistas-alumnos"></div>
+        <div id="vistas-docentes"></div>
+        <div id="vistas-materias"></div>
+        <div id="vistas-matricula"></div>
+        <div id="vistas-inscripcion"></div>
+        <div id="vistas-notas"></div>
+      </div>
     </div>
     <script src="public/js/app.js"></script>
 </body>
