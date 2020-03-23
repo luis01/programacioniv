@@ -44,8 +44,35 @@ class alumno{
                     )
                 ');
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
+            } else if( $this->datos['accion']==='modificar' ){
+                $this->db->consultas('
+                    UPDATE alumnos SET
+                        codigo     = "'. $this->datos['codigo'] .'",
+                        nombre     = "'. $this->datos['nombre'] .'",
+                        direccion  = "'. $this->datos['direccion'] .'",
+                        telefono   = "'. $this->datos['telefono'] .'"
+                    WHERE idAlumno = "'. $this->datos['idAlumno'] .'"
+                ');
+                $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
         }
+    }
+    public function buscarAlumno($valor = ''){
+        $this->db->consultas('
+            select alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
+            from alumnos
+            where alumnos.codigo like "%'. $valor .'%" or alumnos.nombre like "%'. $valor .'%"
+
+        ');
+        return $this->respuesta = $this->db->obtener_data();
+    }
+    public function eliminarAlumno($idAlumno = 0){
+        $this->db->consultas('
+            DELETE alumnos
+            FROM alumnos
+            WHERE alumnos.idAlumno="'.$idAlumno.'"
+        ');
+        return $this->respuesta['msg'] = 'Registro eliminado correctamente';;
     }
 }
 ?>

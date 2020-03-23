@@ -1,9 +1,9 @@
-<form method="post" id="frmAlumnos">
+<form method="post" id="frm-alumnos" data-accion='nuevo' data-idalumno="">
     <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
         <div class="card-header">
             MANTENIMIENTO DE ALUMNOS
 
-            <button type="button" class="close" aria-label="Close">
+            <button type="button" id="btn-close-alumnos" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -53,6 +53,7 @@
                     <div class="col">
                         <input id="btnGuardarAlumnos" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
                         <input type="reset" class="btn btn-outline-warning text-white" value="Limpiar">
+                        <input type="button" class="btn btn-outline-success mostrar-buscar-alumnos text-white" data-modulo="alumnos" data-form="buscar-alumnos" value="Buscar" data-modulo="buscar-alumnos" >
                     </div>
                 </div>
             </div>

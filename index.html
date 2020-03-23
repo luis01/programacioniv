@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenido a Programacion IV</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/estilos.css">
 </head> 
 <body class="bg-secondary">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -16,10 +17,10 @@
             <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mostrar-alumnos" data-modulo="alumnos" href="#">ALUMNOS</a>
+            <a class="nav-link mostrar-alumnos" data-modulo="alumnos" data-form="alumnos" href="#">ALUMNOS</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link mostrar-docentes" data-modulo="docentes" href="#">DOCENTES</a>
+              <a class="nav-link mostrar-docentes" data-modulo="docentes" data-form="docentes" href="#">DOCENTES</a>
           </li>
           <li class="nav-item">
               <a class="nav-link mostrar-materias" data-modulo="materias" href="#">MATERIAS</a>
@@ -38,14 +39,15 @@
     </nav>
     <div class="container">
       <div id="modulos">
-        <div id="vistas-alumnos"></div>
-        <div id="vistas-docentes"></div>
-        <div id="vistas-materias"></div>
-        <div id="vistas-matricula"></div>
-        <div id="vistas-inscripcion"></div>
-        <div id="vistas-notas"></div>
+        <div class="modulos" id="vistas-alumnos"></div>
+        <div class="modulos" id="vistas-buscar-alumnos"></div>
+        <div class="modulos" id="vistas-docentes"></div>
+        <div class="modulos" id="vistas-materias"></div>
+        <div class="modulos" id="vistas-matricula"></div>
+        <div class="modulos" id="vistas-inscripcion"></div>
+        <div class="modulos" id="vistas-notas"></div>
       </div>
     </div>
-    <script src="public/js/app.js"></script>
+    <script type="module" src="public/js/app.js"></script>
 </body>
 </html>
