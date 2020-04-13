@@ -1,30 +1,29 @@
 export function modulo(){
-    var $ = el => document.querySelector(el),
-        frmDocentes = $("#frm-docentes");
-    frmDocentes.addEventListener("submit",e=>{
+    $("#frm-docentes").submit(function(e){
         e.preventDefault();
         e.stopPropagation();
         
         let docentes = {
-            accion    : frmDocentes.dataset.accion,
-            idDocente  : frmDocentes.dataset.iddocente,
-            codigo    : $("#txtCodigoDocente").value,
-            nombre    : $("#txtNombreDocente").value,
-            direccion : $("#txtDireccionDocente").value,
-            telefono  : $("#txtTelefonoDocente").value,
-            dui       : $("#txtDuiDocente").value,
-            nit       : $("#txtNitDocente").value
+            accion    : $(this).data('accion'),
+            idDocente  : $(this).data('iddocente'),
+            codigo    : $("#txtCodigoDocente").val(),
+            nombre    : $("#txtNombreDocente").val(),
+            direccion : $("#txtDireccionDocente").val(),
+            telefono  : $("#txtTelefonoDocente").val(),
+            dui       : $("#txtDuiDocente").val(),
+            nit       : $("#txtNitDocente").val()
         };
         fetch(`private/Modulos/docentes/procesos.php?proceso=recibirDatos&docente=${JSON.stringify(docentes)}`).then( resp=>resp.json() ).then(resp=>{
-            $("#respuestaDocente").innerHTML = `
+            $("#respuestaDocente").html(`
                 <div class="alert alert-success" role="alert">
                     ${resp.msg}
                 </div>
-            `;
+            `);
         });
     });
-    frmDocentes.addEventListener("reset",e=>{
-        $("#frm-docentes").dataset.accion = 'nuevo';
-        $("#frm-docentes").dataset.iddocente = '';
+    $("#frm-docentes").reset(function(e){
+        $(this)
+            .data('iddocente','')
+            .data('accion','nuevo');
     });
 }
