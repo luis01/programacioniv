@@ -7,6 +7,7 @@
     <title>Bienvenido a Programacion IV</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/estilos.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css">
 </head> 
 <body class="bg-secondary">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,7 +27,7 @@
               <a class="nav-link mostrar-materias" data-modulo="materias" data-form="materias" href="#">MATERIAS</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link mostrar-matricula" data-modulo="matricula" href="#">MATRICULA</a>
+              <a class="nav-link mostrar-matricula" data-modulo="matriculas" data-form="matriculas" href="#">MATRICULAS</a>
           </li>
           <li class="nav-item">
               <a class="nav-link mostrar-inscripcion" data-modulo="inscripcion" href="#">INSCRIPCION</a>
@@ -45,7 +46,7 @@
         <div class="modulos" id="vistas-buscar-docentes"></div>
         <div class="modulos" id="vistas-materias"></div>
         <div class="modulos" id="vistas-buscar-materias"></div>
-        <div class="modulos" id="vistas-matricula"></div>
+        <div class="modulos" id="vistas-matriculas"></div>
         <div class="modulos" id="vistas-inscripcion"></div>
         <div class="modulos" id="vistas-notas"></div>
       </div>
@@ -53,6 +54,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="public/js/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script type="module" src="public/js/app.js"></script>
+    <script src="public/js/app.js"></script>
+
+    <script src="https://unpkg.com/vue-select@3.0.0"></script>
 </body>
 </html>

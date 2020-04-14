@@ -1,29 +1,35 @@
-export function modulo(){
-    $("#frm-docentes").submit(function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        
-        let docentes = {
-            accion    : $(this).data('accion'),
-            idDocente  : $(this).data('iddocente'),
-            codigo    : $("#txtCodigoDocente").val(),
-            nombre    : $("#txtNombreDocente").val(),
-            direccion : $("#txtDireccionDocente").val(),
-            telefono  : $("#txtTelefonoDocente").val(),
-            dui       : $("#txtDuiDocente").val(),
-            nit       : $("#txtNitDocente").val()
-        };
-        fetch(`private/Modulos/docentes/procesos.php?proceso=recibirDatos&docente=${JSON.stringify(docentes)}`).then( resp=>resp.json() ).then(resp=>{
-            $("#respuestaDocente").html(`
-                <div class="alert alert-success" role="alert">
-                    ${resp.msg}
-                </div>
-            `);
-        });
-    });
-    $("#frm-docentes").reset(function(e){
-        $(this)
-            .data('iddocente','')
-            .data('accion','nuevo');
-    });
-}
+var appdocentes = new Vue({
+    el:'#frm-docentes',
+    data:{
+        docente:{
+            idDocente : 0,
+            accion    : 'nuevo',
+            codigo    : '',
+            nombre    : '',
+            direccion : '',
+            telefono  : '',
+            dui       : '',
+            nit       : '',
+            msg       : ''
+        }
+    },
+    methods:{
+        guardarDocentes(){
+            fetch(`private/Modulos/docentes/procesos.php?proceso=recibirDatos&docente=${JSON.stringify(this.docente)}`).then( resp=>resp.json() ).then(resp=>{
+                this.docente.msg = resp.msg;
+                this.limpiarDocentes();
+            });
+        },
+        limpiarDocentes(){
+            this.docente.idDocente=0;
+            this.docente.accion="nuevo";
+            this.docente.codigo="";
+            this.docente.nombre="";
+            this.docente.direccion="";
+            this.docente.telefono="";
+            this.docente.dui="";
+            this.docente.nit="";
+            this.docente.msg="";
+        }
+    }
+});

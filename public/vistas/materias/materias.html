@@ -1,4 +1,4 @@
-<form v-on:submit.prevent="guardarMaterias" id="frm-materias">
+<form v-on:submit.prevent="guardarMaterias" v-on:reset="limpiarMaterias" id="frm-materias">
     <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
         <div class="card-header">
             MANTENIMIENTO DE MATERIAS
@@ -46,3 +46,4 @@
         </div>
     </div>
 </form>
+<script src="public/vistas/materias/materias.js"></script>

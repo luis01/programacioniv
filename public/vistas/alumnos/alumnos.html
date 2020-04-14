@@ -1,4 +1,4 @@
-<form method="post" id="frm-alumnos" data-accion='nuevo' data-idalumno="">
+<form method="post" id="frm-alumnos" v-on:submit.prevent="guardarAlumnos" v-on:reset.prevent="limpiarAlumnos">
     <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
         <div class="card-header">
             MANTENIMIENTO DE ALUMNOS
@@ -14,7 +14,7 @@
                         CODIGO:
                     </div>
                     <div class="col">
-                        <input type="text" required id="txtCodigoAlumno" placeholder="XXXX000000" class="form-control">
+                        <input type="text" required v-model="alumno.codigo" placeholder="XXXX000000" class="form-control">
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                         NOMBRE:
                     </div>
                     <div class="col">
-                        <input type="text" required id="txtNombreAlumno" placeholder="AAA AAAA" class="form-control">
+                        <input type="text" required v-model="alumno.nombre" placeholder="AAA AAAA" class="form-control">
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                         DIRECCION:
                     </div>
                     <div class="col">
-                        <input type="text" required id="txtDireccionAlumno" placeholder="XXXX000000" class="form-control">
+                        <input type="text" required v-model="alumno.direccion" placeholder="XXXX000000" class="form-control">
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         TELEFONO:
                     </div>
                     <div class="col">
-                        <input type="text" required id="txtTelefonoAlumno" placeholder="0000-0000" class="form-control">
+                        <input type="text" required v-model="alumno.telefono" placeholder="0000-0000" class="form-control">
                     </div>
                 </div>
             </div>
@@ -65,3 +65,4 @@
         </div>
     </div>
 </form>
+<script src="public/vistas/alumnos/alumnos.js"></script>
