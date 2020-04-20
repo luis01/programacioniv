@@ -53,13 +53,40 @@ class matricula{
         }
     }
     public function buscarMatricula($valor = ''){
+        if( substr_count($valor, '-')===2 ){
+            $valor = implode('-', array_reverse(explode('-',$valor)));
+        }
         $this->db->consultas('
-            select matriculas.idMatricula, matriculas.codigo, matriculas.nombre
+            select matriculas.idMatricula, matriculas.idPeriodo, matriculas.idAlumno, 
+                date_format(matriculas.fecha,"%d-%m-%Y") AS fecha, matriculas.fecha AS f, 
+                alumnos.codigo, alumnos.nombre, 
+                periodos.periodo, periodos.activo
             from matriculas
-            where matriculas.codigo like "%'. $valor .'%" or matriculas.nombre like "%'. $valor .'%"
+                inner join alumnos on(alumnos.idAlumno=matriculas.idAlumno)
+                inner join periodos on(periodos.idPeriodo=matriculas.idPeriodo)
+            where alumnos.nombre like "%'. $valor .'%" or 
+                periodos.periodo like "%'. $valor .'%" or 
+                matriculas.fecha like "%'. $valor .'%"
 
         ');
-        return $this->respuesta = $this->db->obtener_data();
+        $matriculas = $this->respuesta = $this->db->obtener_data();
+        foreach ($matriculas as $key => $value) {
+            $datos[] = [
+                'idMatricula' => $value['idMatricula'],
+                'alumno'      => [
+                    'id'      => $value['idAlumno'],
+                    'label'   => $value['nombre']
+                ],
+                'periodo'      => [
+                    'id'      => $value['idPeriodo'],
+                    'label'   => $value['periodo']
+                ],
+                'fecha'       => $value['f'],
+                'f'           => $value['fecha']
+
+            ]; 
+        }
+        return $this->respuesta = $datos;
     }
     public function traer_periodos_alumnos(){
         $this->db->consultas('

@@ -1,7 +1,7 @@
 <form method="post" id="frm-buscar-matriculas">
     <div class="card text-white bg-dark mb-3" style="max-width: 48rem;">
         <div class="card-header">
-            BUSQUEDA DE MATERIAS
+            BUSQUEDA DE MATRICULA
 
             <button type="button" id="btn-close-buscar-matriculas" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -16,15 +16,17 @@
                         </th>
                     </tr>
                     <tr>
-                        <th>CODIGO</th>
-                        <th>NOMBRE</th> 
+                        <th>PERIODO</th>
+                        <th>ALUMNNO</th> 
+                        <th>FECHA MATRICULA</th>
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="mi_matricula in mis_matriculas" :key="mi_matricula.idMatricula" v-on:click="modificarMatricula(mi_matricula)" >
-                        <td>{{ mi_matricula.codigo }}</td>
-                        <td>{{ mi_matricula.nombre }}</td>
+                        <td>{{ mi_matricula.periodo.label }}</td>
+                        <td>{{ mi_matricula.alumno.label }}</td>
+                        <td>{{ mi_matricula.f }}</td>
                         <td>
                             <input v-on:click="eliminarMatricula(mi_matricula.idMatricula)" type="button" class="btn btn-outline-danger text-white" value="del">
                         </td>
