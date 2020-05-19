@@ -15,13 +15,15 @@ var socket = io.connect("http://localhost:3001",{'forceNew':true}),
             }
         },
         created(){
-            socket.emit('chatHistorial');
+            socket.emit('chatHistory');
         }
     });
     socket.on('recibirMensaje',msg=>{
+        console.log(msg);
         appchat.msgs.push(msg);
     });
-    socket.on('chatHistorial',msgs=>{
+    socket.on('chatHistory',msgs=>{
+        appchat.msgs = [];
         msgs.forEach(item => {
             appchat.msgs.push(item.msg);
         });
