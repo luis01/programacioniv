@@ -1,4 +1,8 @@
 <?php 
+/**
+ * @author Luis Hernandez <luishernandez@ugb.edu.sv>
+ */
+
 include('../../Config/Config.php');
 $alumno = new alumno($conexion);
 
@@ -9,6 +13,9 @@ if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
 $alumno->$proceso( $_GET['alumno'] );
 print_r(json_encode($alumno->respuesta));
 
+/**
+ * @class alummno
+ */
 class alumno{
     private $datos = array(), $db;
     public $respuesta = ['msg'=>'correcto'];
@@ -16,6 +23,10 @@ class alumno{
     public function __construct($db){
         $this->db=$db;
     }
+    /**
+     * @function recibirDatos recibe los datos del alumno
+     * @param object $alumno representa los datos en si
+     */
     public function recibirDatos($alumno){
         $this->datos = json_decode($alumno, true);
         $this->validar_datos();
